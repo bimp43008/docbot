@@ -1,0 +1,20 @@
+[project]
+name = "docbot"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "bimp43008", email = "339244299+bimp43008@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "openai>=3.49.0",
+    "pydantic-settings>=2.16.2",
+]
+
+[project.scripts]
+docbot = "docbot:main"
+
+[build-system]
+requires = ["uv_build>=0.13.1,<0.14.0"]
+build-backend = "uv_build"
