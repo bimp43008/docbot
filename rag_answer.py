@@ -29,5 +29,6 @@ def rag_answer(question: str) -> str:
 
     return resp.choices[0].message.content
 
-for q in ["Кто продал автомобиль и почём?", "Сколько стоит Москва?"]:
-    print(f"\n=== {q} ===\n{rag_answer(q)}")
+if __name__ == "__main__":
+    for q in ["Кто продал автомобиль и почём?", "Сколько стоит Москва?"]:
+        print(f"\n=== {q} ===\n{rag_answer(q)}")
