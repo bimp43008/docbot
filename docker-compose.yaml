@@ -10,5 +10,13 @@ services:
   redis:
     image: redis:7
     ports: ["6379:6379"]
+  n8n:
+    image: n8nio/n8n
+    ports: ["5678:5678"]
+    environment:
+      N8N_SECURE_COOKIE: "false"
+    volumes:
+      - n8n_data:/home/node/.n8n
 volumes:
   pgdata:
+  n8n_data:
