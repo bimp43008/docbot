@@ -29,11 +29,33 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.5,
       "position": [
-        240,
+        224,
         0
       ],
       "id": "490dd974-5562-4a4b-8e7c-5360fe3e54b5",
       "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "chatId": "8129410462",
+        "text": "={{ $json.answer }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        448,
+        0
+      ],
+      "id": "3b2e60b2-b16d-46a5-882f-371ef4e50669",
+      "name": "Send a text message",
+      "webhookId": "063d42b8-cf92-4d1e-a420-55e0de5a3206",
+      "credentials": {
+        "telegramApi": {
+          "id": "0T3bGvESk7VxwRId",
+          "name": "Telegram account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -48,6 +70,17 @@
           }
         ]
       ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
@@ -55,8 +88,9 @@
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
-  "versionId": "a350e4c7-491a-418a-9ced-fda79ac335b9",
+  "versionId": "7ce35f21-b39e-4e85-8e8c-01b7a3973c84",
   "meta": {
+    "templateCredsSetupCompleted": true,
     "instanceId": "95d3a6eabd9868ddec3dec22b2b97ec4ff996661a8413655d030f9f5e4712325"
   },
   "nodeGroups": [],
