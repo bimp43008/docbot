@@ -1,0 +1,65 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "2e8dc303-21bf-43f1-a121-536fd231f419",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "8e0cecbb-58f5-4ad8-b3d5-547308239026",
+      "name": "Webhook",
+      "webhookId": "2e8dc303-21bf-43f1-a121-536fd231f419"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:8000/answer",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"question\": \"Кто продал автомобиль и почём?\"}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        240,
+        0
+      ],
+      "id": "490dd974-5562-4a4b-8e7c-5360fe3e54b5",
+      "name": "HTTP Request"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "a350e4c7-491a-418a-9ced-fda79ac335b9",
+  "meta": {
+    "instanceId": "95d3a6eabd9868ddec3dec22b2b97ec4ff996661a8413655d030f9f5e4712325"
+  },
+  "nodeGroups": [],
+  "id": "eQZxFdLehZ4a3ey4",
+  "tags": []
+}
