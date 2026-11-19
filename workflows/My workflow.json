@@ -23,7 +23,7 @@
         "url": "http://host.docker.internal:8000/answer",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "{\"question\": \"Кто продал автомобиль и почём?\"}",
+        "jsonBody": "={\"question\": \"{{ $json.body.question }}\"}",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
@@ -88,7 +88,7 @@
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
-  "versionId": "7ce35f21-b39e-4e85-8e8c-01b7a3973c84",
+  "versionId": "49a5ad04-5774-4374-a2c0-eba45ff9171c",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "95d3a6eabd9868ddec3dec22b2b97ec4ff996661a8413655d030f9f5e4712325"
