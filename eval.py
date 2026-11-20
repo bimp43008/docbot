@@ -29,4 +29,5 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
+    from rag_answer import model
+    print(f"[eval] model={model}")
