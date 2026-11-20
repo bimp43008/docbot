@@ -1,6 +1,9 @@
 from langchain_community.vectorstores import FAISS
 from e5_embeddings import E5Embeddings
 from llm import client
+import os
+
+model = os.environ.get("DEEPSEEK_MODEL", "deepseek-chat")
 
 emb = E5Embeddings()
 vs = FAISS.load_local("index_faiss", emb, allow_dangerous_deserialization=True)
@@ -14,7 +17,8 @@ def rag_answer(question: str) -> str:
     )
 
     resp = client.chat.completions.create(
-        model="deepseek-chat",
+        model=model,
+        temperature=0,
         messages=[
             {"role": "system", "content": (
                 "Ты — эксперт по документам. "
