@@ -18,7 +18,6 @@ def rag_answer(question: str) -> str:
 
     resp = client.chat.completions.create(
         model=model,
-        temperature=0,
         messages=[
             {"role": "system", "content": (
                 "Ты — эксперт по документам. "
