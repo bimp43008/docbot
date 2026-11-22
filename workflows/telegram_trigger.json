@@ -1,0 +1,108 @@
+{
+  "name": "My workflow 2",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:8000/answer",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"question\": \"{{ $json.message.text }}\"}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        224,
+        0
+      ],
+      "id": "f46da64e-8004-4b59-93ee-863384f7aa85",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "chatId": "8129410462",
+        "text": "={{ $json.answer }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        448,
+        0
+      ],
+      "id": "3bfa987b-f7ec-4187-b3de-bfeb414cafd9",
+      "name": "Send a text message",
+      "webhookId": "6ba215c3-2951-49b1-943a-fa52c11961db",
+      "credentials": {
+        "telegramApi": {
+          "id": "0T3bGvESk7VxwRId",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {
+          "chatIds": "8129410462"
+        }
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.5,
+      "position": [
+        16,
+        0
+      ],
+      "id": "ccc4f4a3-e078-4bb6-945f-67dab902340d",
+      "name": "Telegram Trigger",
+      "webhookId": "033fa692-0713-406d-b542-b5703f5582ab",
+      "credentials": {
+        "telegramApi": {
+          "id": "0T3bGvESk7VxwRId",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "ec1a8cb3-fff9-4701-954b-199a7789316d",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "95d3a6eabd9868ddec3dec22b2b97ec4ff996661a8413655d030f9f5e4712325"
+  },
+  "nodeGroups": [],
+  "id": "DbFAjgkOGn1Lqxpo",
+  "tags": []
+}

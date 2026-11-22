@@ -3,7 +3,7 @@ from pathlib import Path
 from extract import extract
 from schemas import VehicleContract
 
-img = base64.b64encode(Path(__file__).parent.joinpath("contract.jpg").read_bytes()).decode()
+img = base64.b64encode(Path(__file__).parent.joinpath("assets", "contract.jpg").read_bytes()).decode()
 
 if __name__ == "__main__":
     content = [
